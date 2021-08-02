@@ -1,42 +1,47 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int binary_iter(int a[],int n,int key){
-	int s=0;
-	int e=n-1;
-	
-	while(s>=e){
-	int mid=s + (e-s)/2;
-	
-	
-	if(a[mid]==key) {
-	return mid;
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int lowerBound(vector<int> A, int Val) {
+    // your code goes here
+    int s=0;
+    int e=A.size()-1;
+
+    while(s<=e){
+    	int mid=(s+e)/2;
+
+    	if(A[mid]==Val) {
+	return A[mid-1];
 }
-	else if(a[mid]<key){
+	else if(A[mid]>Val){
 		e=mid-1;
 	}
 	else{
 		s=mid+1;
 	}
 
-}
-	return -1;
-}
+    }
+    return -1; //element not present in array
+   
 
 
+    
+}
 
 int main(){
-	int ar[]={10,20,30,40,50,60};
-	int n=sizeof(ar)/sizeof(int);
+
+	std::vector<int> v={-1,-1,2,3,5};
+	int val;
+	cin>>val;
+
+	cout<<lowerBound(v,val);
+
+
+
 	
-	int key;
-	cout<<"enter key value"<<endl;
-	cin>>key;
-	
-	int index=binary_iter(ar,n,key);
-	if(index!=-1){
-		cout<<key<<" is present at index value "<<index<<endl;
-	}
-	else
-	cout<<key<<" is not present in array"<<endl;
+
+
 }
