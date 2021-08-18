@@ -5,7 +5,7 @@
 using namespace std;
 
 int maxSumSubarray(vector<int> A) {
-    int maxsum=0;
+    int maxsum=INT_MIN;
     int currentsum=0;
     
     for(int i=0;i<A.size();i++){
