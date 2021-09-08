@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int kadane_algorithm(int ar[],int n){
+int kadane_algorithm(int ar[],int n){    //time complexity : O(n)
 
 	int maxSum=INT_MIN;
 	int currSum=0;
