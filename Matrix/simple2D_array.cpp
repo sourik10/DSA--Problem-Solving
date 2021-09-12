@@ -11,7 +11,13 @@ void print(int ar[3][2]){
 }
 
 int main(){
-
+	
+	
+	/*   int ar[3][2]={ {10,20}
+			   {30,40}
+			   {50,60}
+			  };
+	*/
 
 	int ar[3][2];
 	for(int i=0;i<3;i++){
