@@ -1,17 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-/*
-void print(int ar[3][2]){
-	for(int i=0;i<3;i++){
-		for(int j=0;j<2;j++){
-			cout<<ar[i][j]<<" ";
+void print(vector<int> arr[], int m){
+	for(int i=0;i<m;i++){
+		for(int j=0;j<arr[i].size();j++){
+			cout<<arr[i][j]<<" ";
 		}
 		cout<<endl;
 	}
 }
-
-*/
 
 
 //array of vectors approach
@@ -22,26 +19,25 @@ int main(){
 	int m;  //rows
 	cin>>m;
 
-	int n=2;
+	int n;
 	cin>>n;  //columns
+
+	int x;
+	
 
 	std::vector<int> ar[m];
 	for(int i=0;i<m;i++){
 		for(int j=0;j<n;j++){
-			ar[i].push_back(10);
+			cin>>x;
+			ar[i].push_back(x);
 		}
 
 
 	}
 
-	for(int i=0;i<m;i++){
-		for(int j=0;j<n;j++){
-			cout<<ar[i][j]<<" ";
-		}
-		cout<<endl;
-	}
+	print(ar,m);
 
-
+	
 
 	
 
