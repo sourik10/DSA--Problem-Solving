@@ -1,17 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-/*
-void print(int ar[3][2]){
-	for(int i=0;i<3;i++){
-		for(int j=0;j<2;j++){
+
+void print(vector<vector<int>> &ar){
+	for(int i=0;i<ar.size();i++){
+		for(int j=0;j<ar[i].size();j++){
 			cout<<ar[i][j]<<" ";
 		}
 		cout<<endl;
+
 	}
 }
-
-*/
 
 
 //vector of vectors approach
@@ -22,6 +21,8 @@ int main(){
 	int m,n;
 	cin>>m>>n;
 
+	int x; //element in 2d matrix
+
 
 
 	vector<vector<int>> ar;
@@ -29,18 +30,14 @@ int main(){
 
 		std::vector<int> v;
 		for(int j=0;j<n;j++){
-			v.push_back(10);
+			cin>>x;
+			v.push_back(x);
 		}
 		ar.push_back(v);
 
 	}
 
-	for(int i=0;i<m;i++){
-		for(int j=0;j<n;j++){
-			cout<<ar[i][j]<<" ";
-		}
-		cout<<endl;
-	}
+	print(ar);
 
 
 
