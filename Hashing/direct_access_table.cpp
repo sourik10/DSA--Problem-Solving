@@ -1,3 +1,5 @@
+//implementation of direct access table(DAT)------search,delete,insert----O(1) time 
+
 #include <bits/stdc++.h>
 using namespace std;
 
