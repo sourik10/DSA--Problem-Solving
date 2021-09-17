@@ -1,3 +1,6 @@
+//Implementation of Open-Addressing in Hashing----search,delete,insert a key in O(1) time
+//Linear Probing----primary clustering
+
 #include<bits/stdc++.h>
 using namespace std;
 
