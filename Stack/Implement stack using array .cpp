@@ -1,18 +1,19 @@
-void MyStack ::push(int x) 
+void MyStack :: push(int x)
 {
-    StackNode* temp=new StackNode(x);
-    temp->next=top;
-    top=temp;
+    top++;
+    arr[top]=x;
 }
 
 //Function to remove an item from top of the stack.
-int MyStack ::pop() 
-{   
-    
-    if(top==NULL) return -1;
-    StackNode* temp=top;
-    int k=temp->data;
-    top=top->next;
-    delete(temp);
+int MyStack :: pop()
+{
+    int k;
+    if(top!=-1){
+        k=arr[top];
+        top--;
+    }
+    else{
+        k=-1;
+    }
     return k;
 }
