@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 struct node{
     int data;
     node* left;
@@ -38,7 +39,7 @@ bool searchIterative(node* root,int x){
     return false;
 }
 
-node insert(node* root,int x){
+node* insert(node* root,int x){
     if(root==NULL){
         return new node(x);
     }
@@ -61,7 +62,7 @@ void inorder(node* root){
 
 void preorder(node* root){
     while(root!=NULL){
-        cout<<root->data;
+        cout<<root->data<<"->";
         preorder(root->left);
         preorder(root->right);
     }
@@ -71,7 +72,7 @@ void postorder(node* root){
     while(root!=NULL){
         postorder(root->left);
         postorder(root->right);
-        cout<<
+        cout<<root->data<<"->";
     }
 }
 
@@ -88,12 +89,13 @@ int main() {
   root->right->right=new node(80);
   root->right->left->left=new node(16);
   
-  int x;//ellemnt to search
-  cin>>x;
-  if(search(root,x)){
+// int x;//ellemnt to search
+ // cin>>x;
+  if(search(root,18)){
       cout<<"found"<<endl;
   }
   else cout<<"not found"<<endl;
   insert(root,10); 
+  inorder(root);
   
 }
