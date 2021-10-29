@@ -12,6 +12,18 @@ using namespace std;
 
 	return res;
 }
+
+int Solution::trailingZeroes(int A) {
+    if(A<0) return -1;
+
+    int count=0;
+    while(A>0){
+        count+=(A/5);
+        A/=5;
+    }
+    return count;
+}
+
 int main() {
     
     	int number = 10;
