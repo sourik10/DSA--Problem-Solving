@@ -1,101 +1,193 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct node{
-    int data;
-    node* left;
-    node* right;
-    node(int d){
-        data=d;
-        left=right=NULL;
-    }
+//creating nodes using struct
+struct Node  
+{ 
+  int key; 
+  struct Node *left; 
+  struct Node *right; 
+  Node(int k){
+      key=k;
+      left=right=NULL;
+  }
 };
 
-//search-recursive code
-bool search(node* root,int x){
-    if(root==NULL) return false;
-    if(root->data==x) return true;
-    else if(root->data > x){
-        search(root->left,x);
+//recursive SearchOperation in BST
+bool search(Node *root, int x){
+    if(root==NULL)
+        return false;
+    if(root->key==x)
+        return true;
+    else if(root->key>x){
+        return search(root->left,x);
+    }else{
+        return search(root->right,x);
     }
-    else{
-        search(root->right,x);
-    }
-}
+} 
 
-//search-iterative code
-bool searchIterative(node* root,int x){
+//iterativeSearch in BST
+bool searchIterative(Node *root, int x){
     while(root!=NULL){
-        if(root->data==x){
+        if(root->key==x)
             return true;
-        }
-        else if(root->data > x){
+        else if(root->key>x)
             root=root->left;
-        }
-        else{
+        else // root-->key<x
             root=root->right;
-        }
     }
     return false;
+} 
+
+//recursiveInsert in BST
+Node *insert(Node *root, int x){
+    if(root==NULL)
+        return new Node(x);
+    if(root->key<x)
+        root->right=insert(root->right,x);
+    else if(root->key>x)
+        root->left=insert(root->left,x);
+    return root;
+} 
+
+//iterativeInsertOpeation in BST
+Node *insertIterative(Node *root, int x){
+    Node *temp=new Node(x);
+    Node *parent=NULL,*curr=root;
+    while(curr!=NULL){
+        parent=curr;
+        if(curr->key>x)
+            curr=curr->left;
+        else if(curr->key<x)
+            curr=curr->right;
+        else
+            return root;
+    }
+    if(parent==NULL)
+        return temp;
+    if(parent->key>x)
+        parent->left=temp;
+    else
+        parent->right=temp;
+    return root;
+} 
+
+//deleteOperation in BST
+Node *getSuccessor(Node *curr){
+    curr=curr->right;
+    while(curr!=NULL && curr->left!=NULL)
+        curr=curr->left;
+    return curr;
 }
 
-node* insert(node* root,int x){
-    if(root==NULL){
-        return new node(x);
-    }
-    if(root->data > x){
-        root->left=insert(root->left,x);
-    }
-    else if(root->data < x){
-        root->right=insert(root->right,x);
+Node *delNode(Node *root, int x){
+    if(root==NULL)
+        return root;
+    if(root->key>x)
+        root->left=delNode(root->left,x);
+    else if(root->key<x)
+        root->right=delNode(root->right,x);
+    else{
+        if(root->left==NULL){
+            Node *temp=root->right;
+            delete root;
+            return temp;
+        }
+        else if(root->right==NULL){
+            Node *temp=root->left;
+            delete root;
+            return temp;
+        }
+        else{
+            Node *succ=getSuccessor(root);
+            root->key=succ->key;
+            root->right=delNode(root->right,succ->key);
+        }
     }
     return root;
 }
 
-void inorder(node* root){
-    while(root!=NULL){
+//traversalTechnique---inorder,preorder,postorder traversal
+void inorder(Node *root){
+    if(root!=NULL){
         inorder(root->left);
-        cout<<root->data<<"->";
-        inorder(root->right);
+        cout<<root->key<<" ";
+        inorder(root->right);    
     }
-}
-
-void preorder(node* root){
-    while(root!=NULL){
-        cout<<root->data<<"->";
+} 
+void preorder(Node *root){
+    if(root!=NULL){
+        cout<<root->key<<" ";
         preorder(root->left);
-        preorder(root->right);
+        preorder(root->right);    
     }
-}
-
-void postorder(node* root){
-    while(root!=NULL){
+} 
+void postorder(Node *root){
+    if(root!=NULL){
         postorder(root->left);
-        postorder(root->right);
-        cout<<root->data<<"->";
+        postorder(root->right); 
+        cout<<root->key<<" ";   
     }
-}
+} 
 
-int main() {
-  node* root=new node(15); //rootElement
-  
-  //left-subtree
-  root->left=new node(5);
-  root->left->left=new node(3);
-  
-  //right-subtree
-  root->right=new node(20);
-  root->right->left=new node(18);
-  root->right->right=new node(80);
-  root->right->left->left=new node(16);
-  
-// int x;//ellemnt to search
- // cin>>x;
-  if(search(root,18)){
-      cout<<"found"<<endl;
-  }
-  else cout<<"not found"<<endl;
-  insert(root,10); 
-  inorder(root);
-  
+
+int main(){
+    Node* root=new Node(20);
+    root->left=new Node(15);
+    root->right=new Node(25);
+    root->left->left=new Node(14);
+    root->left->right=new Node(18);
+
+    /* 
+
+            (20)--->rootKey
+        (15)          (25)--->root->right
+    (14)     (18)---->root->left->right
+    
+    */
+    int x=21;
+    if(search(root,x)){
+        cout<<x<<" is found"<<endl;
+    }
+    else cout<<x<<" is not found"<<endl;
+
+
+    int y=23;
+    root=insert(root,y);
+    if(search(root,y)){
+        cout<<y<<" is found"<<endl;
+    }
+    else cout<<y<<" is not found"<<endl;
+
+    int z=40;
+    root=insertIterative(root,z);
+    /* 
+
+                          (20)--->rootKey
+            (15)                                  (25)
+    (14)             (18)               (23)                    (40)
+    
+                                                         (37)
+    */
+
+    root=insert(root,37);
+    inorder(root);
+    cout<<endl;
+
+    preorder(root);
+    cout<<endl;
+
+    postorder(root);
+    cout<<endl;
+
+    root=delNode(root,40);  //deleting rootNode 20 (having 2 children)
+    cout<<"newRoot- "<<root->key<<endl;
+    cout<<root->right->right->key; //40 is deleted(singleChild node)
+
+    root=delNode(root,20);  //deleting rootNode 20 (having 2 children)
+    cout<<endl<<"newRoot- "<<root->key<<endl;
+   
+
+
+
 }
