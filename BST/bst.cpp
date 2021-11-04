@@ -130,6 +130,36 @@ void postorder(Node *root){
     }
 } 
 
+Node *floor(Node *root, int x){
+    Node *res=NULL;
+    while(root!=NULL){ 
+        if(root->key==x)
+            return root;
+        else if(root->key>x)
+            root=root->left;
+        else{
+            res=root;
+            root=root->right;
+        }
+    }
+    return res;
+} 
+
+Node *ceil(Node *root, int x){
+    Node *res=NULL;
+    while(root!=NULL){
+        if(root->key==x)
+            return root;
+        else if(root->key<x)
+            root=root->right;
+        else{
+            res=root;
+            root=root->left;
+        }
+    }
+    return res;
+} 
+
 
 int main(){
     Node* root=new Node(20);
@@ -163,11 +193,11 @@ int main(){
     root=insertIterative(root,z);
     /* 
 
-                          (20)--->rootKey
-            (15)                                  (25)
-    (14)             (18)               (23)                    (40)
+                       (20)--->rootKey
+        (15)                         (25)
+    (14)     (18)             (23)          (40)
     
-                                                         (37)
+                                     (37)
     */
 
     root=insert(root,37);
@@ -188,6 +218,13 @@ int main(){
     cout<<endl<<"newRoot- "<<root->key<<endl;
    
 
+    //floor in BST
+    int f=26;
+    cout<<"Floor of "<<f<<" "<<floor(root,f)->key<<endl;
+
+    //ceil in BST
+    int c=36;
+    cout<<"ceil of "<<c<<" "<<ceil(root,c)->key<<endl;
 
 
 }
