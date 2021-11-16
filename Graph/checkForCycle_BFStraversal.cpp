@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//BFS traversal using Adjacency List Technique--->level order traversal
-//time comlexity = O(N+E)
-//space complexity = O(N)
+//cycle detection using bfs traversal technique
+//time complexity = O(N)
+//space complexity
 
 class Solution {
 public:
