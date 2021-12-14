@@ -114,5 +114,167 @@ int main() {
 
 
 //p7
+#include <bits/stdc++.h>
+using namespace std;
 
+int main() {
+    int n; cin>>n; 
+    int k=1;
+    int i=1;
+    while(i<=n){
+        int j=1;
+        while(j<=i){
+            //int m=i;
+            cout<<i-j+1<<" ";  
+            j++;
+        }
+        cout<<endl;
+        i++;
+    }
+}
+
+
+//p8
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n; cin>>n; 
+    int k=1;
+    int i=1;
+    while(i<=n){
+        int j=1;
+        while(j<=n){
+            //int m=i;
+            cout<<char('A'+j-1)<<" ";  
+            j++;
+        }
+        cout<<endl;
+        i++;
+    }
+}
+
+
+//p9
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n; cin>>n; 
+    char k='A';
+    int i=1;
+    while(i<=n){
+        int j=1;
+        while(j<=n){
+           // char c='A';
+            cout<<k<<" ";  
+            k=k+1;
+            j++;
+        }
+        cout<<endl;
+        i++;
+    }
+}
+
+
+//p10
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n; cin>>n; 
+    //char k='A';
+    
+   // int k=1;
+    int i=1;
+    while(i<=n){
+        int j=1;
+        while(j<=n){
+           // char c='A';
+            cout<<char('A'+i+j-2)<<" ";  
+            //k=k+1;
+            j++;
+        }
+        cout<<endl;
+        i++;
+    }
+}
+
+
+//p11
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n; cin>>n; 
+    //char k='A';
+    
+   // int k=1;
+    int i=1;
+    while(i<=n){
+        int j=1;
+        while(j<=i){
+           // char c='A';
+            //cout<<char('A'+i+j-2)<<" ";  
+            cout<<char('A'+i-1)<<" ";  
+            //k=k+1;
+            j++;
+        }
+        cout<<endl;
+        i++;
+    }
+}
+
+
+//p12
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n; cin>>n; 
+    //char k='A';
+    
+   // int k=1;
+    int i=1;
+    while(i<=n){
+        int j=1;
+        while(j<=i){
+           // char c='A';
+            //cout<<char('A'+i+j-2)<<" ";  
+            cout<<char('A'+i+j-2)<<" ";  
+            //k=k+1;
+            j++;
+        }
+        cout<<endl;
+        i++;
+    }
+}
+
+
+//p13
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n; cin>>n; 
+    //char k='A';
+    
+   // int k=1;
+    int i=1;
+    while(i<=n){
+        int j=1;
+        while(j<=i){
+            
+            cout<<char('A'+n-1-i+j)<<" ";  
+            //k=k+1;
+            j++;
+        }
+        cout<<endl;
+        i++;
+    }
+}
+
+
+//p14
+//48 min
 
