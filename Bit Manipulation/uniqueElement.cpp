@@ -1,8 +1,9 @@
+//findUnique element from an array
 int findUnique(int *arr, int size)
 {
-    int ans=0;
+    int res=0;
     for(int i=0;i<size;i++){
-        ans=ans^arr[i];
+        res=res^arr[i];
     }
-    return ans;
+    return res;
 }
