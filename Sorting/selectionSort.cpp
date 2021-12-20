@@ -1,3 +1,7 @@
+//time = O(n*n)
+//space = O(1)
+//selectionSort ---> effective for small n values
+
 void selectionSort(vector<int>& arr, int n)
 {
     for(int i=0;i<n-1;i++){
