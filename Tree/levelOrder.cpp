@@ -9,6 +9,9 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+//time complexity O(n)
+//space complexity O(n)
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
