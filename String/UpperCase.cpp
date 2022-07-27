@@ -5,6 +5,18 @@ char upperCase(char m){
 	return 'A'+(m-'a');
 }
 
+string convertString(string str) {
+    for(int i=0;i<str.length();i++){
+        if(str[i]>='a' && str[i]<='z'){
+            str[i]-=32; //lowercase to uppecase
+        }
+        while(i<str.length() && str[i]!=' '){
+            i++;
+        }
+    }
+    return str;
+}
+
 int main(){
 	while(true){
 		string s; cin>>s;
